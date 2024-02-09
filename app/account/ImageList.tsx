@@ -43,7 +43,7 @@ export default function ImageList({ images }: { images: any }) {
                   <div className="flex gap-2">
                     <span>{image.settings.size}</span>|
                     <span>{image.settings.dimension}</span>|
-                    <span>{image.settings.scale}</span>
+                    <span>{image.settings.scale}x</span>
                   </div>
                 </TableCell>
                 <TableCell>{image.created_at}</TableCell>

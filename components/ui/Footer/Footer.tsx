@@ -15,7 +15,7 @@ export default function Footer() {
             <span className="mr-2 border rounded-full border-zinc-700">
               <Logo />
             </span>
-            <span>company</span>
+            <span>upscaleimage</span>
           </Link>
         </div>
         <div className="col-span-1 lg:col-span-2">
@@ -78,19 +78,19 @@ export default function Footer() {
       <div className="flex flex-col items-center justify-between py-12 space-y-4 md:flex-row bg-zinc-900">
         <div>
           <span>
-            &copy; {new Date().getFullYear()} company, Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} upscaleimage, Inc. All rights reserved.
           </span>
         </div>
-        <div className="flex items-center">
+        {/* <div className="flex items-center">
           <span className="text-white">Crafted by</span>
-          <a href="https://company.com" aria-label="company.com Link">
+          <a href="https://upscaleimage.com" aria-label="upscaleimage.com Link">
             <img
-              src="/company.svg"
-              alt="company Logo"
+              src="/upscaleimage.svg"
+              alt="upscaleimage Logo"
               className="inline-block h-6 ml-4 text-white"
             />
           </a>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

@@ -5,8 +5,7 @@ import {
   getSession,
   getUserDetails,
   getSubscription,
-  getImages,
-  getImageFile
+  getImages
 } from '@/app/supabase-server';
 import Button from '@/components/ui/Button';
 import { Database } from '@/types_db';
@@ -76,9 +75,9 @@ export default async function Account() {
           <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             Account
           </h1>
-          <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
+          {/* <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
             We partnered with Stripe for a simplified billing.
-          </p>
+          </p> */}
         </div>
 
         <div className=" pt-16">
@@ -87,11 +86,11 @@ export default async function Account() {
               <TabsTrigger value="images" className="text-xl font-bold">
                 Images
               </TabsTrigger>
-              <TabsTrigger value="billing" className="text-xl font-bold">
+              {/* <TabsTrigger value="billing" className="text-xl font-bold">
                 Billing
-              </TabsTrigger>
+              </TabsTrigger> */}
               <TabsTrigger value="settings" className="text-xl font-bold">
-                Info Settings
+                Personal Settings
               </TabsTrigger>
             </TabsList>
             <TabsContent value="images">
