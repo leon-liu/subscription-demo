@@ -21,8 +21,6 @@ export const postData = async ({
   url: string;
   data?: { price: Price };
 }) => {
-  console.log('posting,', url, data);
-
   const res = await fetch(url, {
     method: 'POST',
     headers: new Headers({ 'Content-Type': 'application/json' }),
@@ -31,12 +29,117 @@ export const postData = async ({
   });
 
   if (!res.ok) {
-    console.log('Error in postData', { url, data, res });
-
     throw Error(res.statusText);
   }
 
   return res.json();
+};
+
+export const deleteImageData = async ({
+  url,
+  data
+}: {
+  url: string;
+  data?: { image_id: string };
+}) => {
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: new Headers({ 'Content-Type': 'application/json' }),
+    credentials: 'same-origin',
+    body: JSON.stringify(data)
+  });
+
+  if (!res.ok) {
+    throw Error(res.statusText);
+  }
+
+  return res.json();
+};
+
+export const postImageData = async ({
+  url,
+  data
+}: {
+  url: string;
+  data?: { img: string; scale: number };
+}) => {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: new Headers({ 'Content-Type': 'application/json' }),
+    credentials: 'same-origin',
+    body: JSON.stringify(data)
+  });
+
+  if (!res.ok) {
+    throw Error(res.statusText);
+  }
+
+  return res.json();
+};
+
+export const postImageRecord = async ({
+  url,
+  data
+}: {
+  url: string;
+  data?: {
+    url: string;
+    settings: { fn: string; scale: number; size: string; dimension: string };
+  };
+}) => {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: new Headers({ 'Content-Type': 'application/json' }),
+    credentials: 'same-origin',
+    body: JSON.stringify(data)
+  });
+
+  if (!res.ok) {
+    throw Error(res.statusText);
+  }
+
+  return res.json();
+};
+
+export const postImageFile = async ({
+  url,
+  file
+}: {
+  url: string;
+  file: string;
+}) => {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: new Headers({ 'Content-Type': 'application/json' }),
+    credentials: 'same-origin',
+    body: JSON.stringify({ file })
+  });
+
+  if (!res.ok) {
+    throw Error(res.statusText);
+  }
+
+  return res.json();
+};
+
+export const getImageFile = async ({
+  url,
+  data
+}: {
+  url: string;
+  data?: { path: string };
+}) => {
+  const res = await fetch(`${url}?path=${data?.path}`, {
+    method: 'GET',
+    headers: new Headers({ 'Content-Type': 'application/json' }),
+    credentials: 'same-origin'
+  });
+
+  if (!res.ok) {
+    throw Error(res.statusText);
+  }
+
+  return res.blob();
 };
 
 export const toDateTime = (secs: number) => {

@@ -1,8 +1,12 @@
 import ManageSubscriptionButton from './ManageSubscriptionButton';
+import RemoveImagesButton from './RemoveImagesButton';
+import ImageList from './ImageList';
 import {
   getSession,
   getUserDetails,
-  getSubscription
+  getSubscription,
+  getImages,
+  getImageFile
 } from '@/app/supabase-server';
 import Button from '@/components/ui/Button';
 import { Database } from '@/types_db';
@@ -12,12 +16,14 @@ import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default async function Account() {
-  const [session, userDetails, subscription] = await Promise.all([
+  const [session, userDetails, subscription, images] = await Promise.all([
     getSession(),
     getUserDetails(),
-    getSubscription()
+    getSubscription(),
+    getImages()
   ]);
 
   const user = session?.user;
@@ -74,94 +80,128 @@ export default async function Account() {
             We partnered with Stripe for a simplified billing.
           </p>
         </div>
-      </div>
-      <div className="p-4">
-        <Card
-          title="Your Plan"
-          description={
-            subscription
-              ? `You are currently on the ${subscription?.prices?.products?.name} plan.`
-              : 'You are not currently subscribed to any plan.'
-          }
-          footer={<ManageSubscriptionButton session={session} />}
-        >
-          <div className="mt-8 mb-4 text-xl font-semibold">
-            {subscription ? (
-              `${subscriptionPrice}/${subscription?.prices?.interval}`
-            ) : (
-              <Link href="/">Choose your plan</Link>
-            )}
-          </div>
-        </Card>
-        <Card
-          title="Your Name"
-          description="Please enter your full name, or a display name you are comfortable with."
-          footer={
-            <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-              <p className="pb-4 sm:pb-0">64 characters maximum</p>
-              <Button
-                variant="slim"
-                type="submit"
-                form="nameForm"
-                disabled={true}
-              >
-                {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
-                Update Name
-              </Button>
-            </div>
-          }
-        >
-          <div className="mt-8 mb-4 text-xl font-semibold">
-            <form id="nameForm" action={updateName}>
-              <input
-                type="text"
-                name="name"
-                className="w-1/2 p-3 rounded-md bg-zinc-800"
-                defaultValue={userDetails?.full_name ?? ''}
-                placeholder="Your name"
-                maxLength={64}
-              />
-            </form>
-          </div>
-        </Card>
-        <Card
-          title="Your Email"
-          description="Please enter the email address you want to use to login."
-          footer={
-            <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-              <p className="pb-4 sm:pb-0">
-                We will email you to verify the change.
-              </p>
-              <Button
-                variant="slim"
-                type="submit"
-                form="emailForm"
-                disabled={true}
-              >
-                {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
-                Update Email
-              </Button>
-            </div>
-          }
-        >
-          <div className="mt-8 mb-4 text-xl font-semibold">
-            <form id="emailForm" action={updateEmail}>
-              <input
-                type="text"
-                name="email"
-                className="w-1/2 p-3 rounded-md bg-zinc-800"
-                defaultValue={user ? user.email : ''}
-                placeholder="Your email"
-                maxLength={64}
-              />
-            </form>
-          </div>
-        </Card>
+
+        <div className=" pt-16">
+          <Tabs defaultValue="images" className=" ">
+            <TabsList className="grid  grid-cols-3 ">
+              <TabsTrigger value="images" className="text-xl font-bold">
+                Images
+              </TabsTrigger>
+              <TabsTrigger value="billing" className="text-xl font-bold">
+                Billing
+              </TabsTrigger>
+              <TabsTrigger value="settings" className="text-xl font-bold">
+                Info Settings
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="images">
+              <div className="pt-8">
+                <Card
+                  title="Your Images"
+                  description="Upscaled images history"
+                  footer={<RemoveImagesButton />}
+                >
+                  <div className="mt-8 mb-4 text-xl font-semibold">
+                    <ImageList images={images} />
+                  </div>
+                </Card>
+              </div>
+            </TabsContent>
+            <TabsContent value="billing">
+              <div className="pt-8">
+                <Card
+                  title="Your Plan"
+                  description={
+                    subscription
+                      ? `You are currently on the ${subscription?.prices?.products?.name} plan.`
+                      : 'You are not currently subscribed to any plan.'
+                  }
+                  footer={<ManageSubscriptionButton session={session} />}
+                >
+                  <div className="mt-8 mb-4 text-xl font-semibold">
+                    {subscription ? (
+                      `${subscriptionPrice}/${subscription?.prices?.interval}`
+                    ) : (
+                      <Link href="/">Choose your plan</Link>
+                    )}
+                  </div>
+                </Card>
+              </div>
+            </TabsContent>
+            <TabsContent value="settings">
+              <div className="pt-8">
+                <Card
+                  title="Your Name"
+                  description="Please enter your full name, or a display name you are comfortable with."
+                  footer={
+                    <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+                      <p className="pb-4 sm:pb-0">64 characters maximum</p>
+                      <Button
+                        variant="slim"
+                        type="submit"
+                        form="nameForm"
+                        disabled={true}
+                      >
+                        {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
+                        Update Name
+                      </Button>
+                    </div>
+                  }
+                >
+                  <div className="mt-8 mb-4 text-xl font-semibold">
+                    <form id="nameForm" action={updateName}>
+                      <input
+                        type="text"
+                        name="name"
+                        className="w-1/2 p-3 rounded-md bg-zinc-800"
+                        defaultValue={userDetails?.full_name ?? ''}
+                        placeholder="Your name"
+                        maxLength={64}
+                      />
+                    </form>
+                  </div>
+                </Card>
+                <Card
+                  title="Your Email"
+                  description="Please enter the email address you want to use to login."
+                  footer={
+                    <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+                      <p className="pb-4 sm:pb-0">
+                        We will email you to verify the change.
+                      </p>
+                      <Button
+                        variant="slim"
+                        type="submit"
+                        form="emailForm"
+                        disabled={true}
+                      >
+                        {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
+                        Update Email
+                      </Button>
+                    </div>
+                  }
+                >
+                  <div className="mt-8 mb-4 text-xl font-semibold">
+                    <form id="emailForm" action={updateEmail}>
+                      <input
+                        type="text"
+                        name="email"
+                        className="w-1/2 p-3 rounded-md bg-zinc-800"
+                        defaultValue={user ? user.email : ''}
+                        placeholder="Your email"
+                        maxLength={64}
+                      />
+                    </form>
+                  </div>
+                </Card>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
       </div>
     </section>
   );
 }
-
 interface Props {
   title: string;
   description?: string;

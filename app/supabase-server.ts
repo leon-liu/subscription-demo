@@ -65,3 +65,53 @@ export const getActiveProductsWithPrices = async () => {
   }
   return data ?? [];
 };
+
+export const getImageFiles = async () => {
+  const supabase = createServerSupabaseClient();
+  const {
+    data: { user }
+  } = await supabase.auth.getUser();
+  const { data, error } = await supabase.storage
+    .from('upscale')
+    .list(`${user.id}/`, {
+      limit: 10,
+      offset: 0,
+      sortBy: {
+        column: 'created_at',
+        order: 'asc'
+      }
+    });
+  if (error) {
+    console.log(error.message);
+  }
+  return data ?? '';
+};
+
+export const getImageFile = async (path: string) => {
+  const supabase = createServerSupabaseClient();
+  const {
+    data: { user }
+  } = await supabase.auth.getUser();
+  const { data, error } = await supabase.storage
+    .from('upscale')
+    .download(`${user.id}/${path}`);
+  if (error) {
+    console.log(error.message);
+  }
+  return data ?? '';
+};
+
+export const getImages = async () => {
+  const supabase = createServerSupabaseClient();
+  const {
+    data: { user }
+  } = await supabase.auth.getUser();
+  let { data: images, error } = await supabase
+    .from('images')
+    .select('*')
+    .eq('user_id', user.id);
+  if (error) {
+    console.log(error.message);
+  }
+  return images ?? [];
+};

@@ -3,6 +3,7 @@ import { stripe } from './stripe';
 import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
 import type { Database } from 'types_db';
+import { v4 as uuidv4 } from 'uuid';
 
 type Product = Database['public']['Tables']['products']['Row'];
 type Price = Database['public']['Tables']['prices']['Row'];
@@ -177,9 +178,73 @@ const manageSubscriptionStatusChange = async (
     );
 };
 
+const createImage = async ({
+  uuid,
+  url,
+  settings
+}: {
+  uuid: string;
+  url: string;
+  settings: { fn: string; scale: string; size: string; dimension: string };
+}) => {
+  const { data, error } = await supabaseAdmin
+    .from('images')
+    .insert([
+      {
+        user_id: uuid,
+        url,
+        settings
+      }
+    ])
+    .select();
+  if (error) throw error;
+  return data;
+};
+
+const removeImages = async ({ uuid }: { uuid: string }) => {
+  const { data, error } = await supabaseAdmin
+    .from('images')
+    .delete()
+    .eq('user_id', uuid);
+  if (error) throw error;
+  return data;
+};
+
+const retrieveImageFile = async ({
+  uuid,
+  path
+}: {
+  uuid: string;
+  path: string;
+}) => {
+  const { data, error } = await supabaseAdmin.storage
+    .from('upscale')
+    .download(path);
+  if (error) throw error;
+  return data;
+};
+
+const createImageFile = async ({
+  uuid,
+  file
+}: {
+  uuid: string;
+  file: File;
+}) => {
+  const { data, error } = await supabaseAdmin.storage
+    .from('upscale')
+    .upload(`${uuid}/${uuidv4()}`, file);
+  if (error) throw error;
+  return data.path;
+};
+
 export {
   upsertProductRecord,
   upsertPriceRecord,
   createOrRetrieveCustomer,
-  manageSubscriptionStatusChange
+  manageSubscriptionStatusChange,
+  createImage,
+  removeImages,
+  retrieveImageFile,
+  createImageFile
 };
