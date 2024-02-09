@@ -39,6 +39,8 @@ export const metadata = {
   }
 };
 
+export const dynamic = 'force-dynamic'; // add this to fix DynamicServerError: Dynamic server usage: cookies
+
 export default function RootLayout({
   // Layouts must accept a children prop.
   // This will be populated with nested layouts or pages
@@ -48,7 +50,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-black loading">
         <SupabaseProvider>
-          {/* @ts-expect-error */}
           <Navbar />
           <main
             id="skip"

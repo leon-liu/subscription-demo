@@ -9,7 +9,8 @@ import { Separator } from '@/components/ui/separator';
 import { postImageData, postImageRecord, postImageFile } from '@/utils/helpers';
 import React, { useCallback, useEffect, useState } from 'react';
 
-const convertBase64 = (file: any) => {
+
+const convertBase64 = (file: Blob): Promise<{base64File: string; height: number; width: number}> => {
   return new Promise((resolve, reject) => {
     const fileReader = new FileReader();
     fileReader.readAsDataURL(file);
@@ -21,10 +22,10 @@ const convertBase64 = (file: any) => {
       image.src = e.target.result;
 
       //Validate the File Height and Width.
-      image.onload = function () {
-        const height = this.height;
-        const width = this.width;
-        resolve({ base64File: fileReader.result, height, width });
+      image.onload = function (ee) {
+        const height = (ee.target as HTMLImageElement).height;
+        const width = (ee.target as HTMLImageElement).width;
+        resolve({ base64File: fileReader.result as string, height, width });
       };
     };
     fileReader.onerror = (error) => {
@@ -65,8 +66,8 @@ export default function UploadImage({
   const [imageObj, setImageObj] = useState('');
   const [processing, setProcessing] = useState(false);
   const [isValid, setIsValid] = useState(true);
-  const [imageWidth, setImageWidth] = useState();
-  const [imageHeight, setImageHeight] = useState();
+  const [imageWidth, setImageWidth] = useState(0);
+  const [imageHeight, setImageHeight] = useState(0);
   const [scale, setScale] = useState(2);
 
   const dimension = `${imageWidth}x${imageHeight}px`;
@@ -87,10 +88,11 @@ export default function UploadImage({
         setIsValid(false);
       }
     }
+
     convertBase64(file).then(({ base64File, height, width }) => {
       setImageHeight(height);
       setImageWidth(width);
-      setImageObj(base64File as string);
+      setImageObj(base64File);
     });
   }, []);
 

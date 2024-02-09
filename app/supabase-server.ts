@@ -73,7 +73,7 @@ export const getImageFiles = async () => {
   } = await supabase.auth.getUser();
   const { data, error } = await supabase.storage
     .from('upscale')
-    .list(`${user.id}/`, {
+    .list(`${user!.id}/`, {
       limit: 10,
       offset: 0,
       sortBy: {
@@ -94,7 +94,7 @@ export const getImageFile = async (path: string) => {
   } = await supabase.auth.getUser();
   const { data, error } = await supabase.storage
     .from('upscale')
-    .download(`${user.id}/${path}`);
+    .download(`${user!.id}/${path}`);
   if (error) {
     console.log(error.message);
   }
@@ -109,7 +109,7 @@ export const getImages = async () => {
   let { data: images, error } = await supabase
     .from('images')
     .select('*')
-    .eq('user_id', user.id);
+    .eq('user_id', user!.id);
   if (error) {
     console.log(error.message);
   }

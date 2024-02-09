@@ -8,10 +8,10 @@ export default function RemoveImagesButton({}) {
   const router = useRouter();
   const removeImagesHandler = async () => {
     try {
-      const { url } = await deleteImageData({
+      const result = await deleteImageData({
         url: '/api/image'
       });
-      router.push(url);
+      router.push("/account");
     } catch (error) {
       if (error) return alert((error as Error).message);
     }

@@ -25,7 +25,7 @@ export default async function Navbar() {
             </Link>
             <nav className="hidden ml-6 space-x-2 lg:block">
               <Link href="/" className={s.link}>
-                Upsacle Image
+                Upscale Image
               </Link>
               {/* <Link href="/pricing" className={s.link}>
                 Pricing

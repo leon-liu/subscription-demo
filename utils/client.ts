@@ -1,7 +1,7 @@
-export function saveBlob(blob, fileName) {
-  var a = document.createElement("a");
-  document.body.appendChild(a);
-  a.style = "display: none";
+export function saveBlob(blob: Blob, fileName: string) {
+  let a = document.createElement("a");
+  // document.body.appendChild(a);
+  // a.style = "display: none";
 
   var url = window.URL.createObjectURL(blob);
   a.href = url;

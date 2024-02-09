@@ -28,8 +28,8 @@ export default function Uploader({ session, user, subscription }: Props) {
   const [loggedIn, setLoggedIn] = useState(false);
   const handleFile = useCallback((e: any) => {
     const target = e.target as HTMLInputElement;
-    let fileList = target.files;
-    const len = fileList?.length;
+    let fileList = target.files || [];
+    const len = fileList?.length || 0;
     const fs = [];
     for (let i = 0; i < len; i++) {
       fs.push(fileList[i]);
