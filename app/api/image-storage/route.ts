@@ -19,8 +19,8 @@ export async function POST(req: Request) {
       const response = await fetch(file);
       const blob = await response.blob();
 
-      const contentType = response.headers.get('content-type');
-      const f = new File([blob], fileName, { contentType });
+      const contentType = response.headers.get('content-type') || undefined;
+      const f = new File([blob], fileName, { type: contentType });
       const path = await createImageFile({
         uuid: user.id || '',
         file: f
