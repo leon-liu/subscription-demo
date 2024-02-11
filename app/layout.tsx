@@ -5,12 +5,12 @@ import { PropsWithChildren } from 'react';
 import 'styles/main.css';
 
 const meta = {
-  title: 'Upscale image',
-  description: 'Enlarge image based on users',
+  title: 'bigjpg',
+  description: 'Enlarge image based on user\'s choose',
   cardImage: '/og.png',
   robots: 'follow, index',
   favicon: '/favicon.ico',
-  url: 'https://upscaleimage.com',
+  url: 'https://bigjpg.app',
   type: 'website'
 };
 

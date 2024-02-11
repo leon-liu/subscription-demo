@@ -17,18 +17,18 @@ export default function FAQ() {
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
                 <AccordionTrigger>
-                  How does upscaleimage enlarge images?
+                  How does bigjpg enlarge images?
                 </AccordionTrigger>
                 <AccordionContent>
                   Using the latest Deep Convolutional Neural Networks,
-                  upscaleimage intelligently reduces noise and serration in
+                  bigjpg intelligently reduces noise and serration in
                   images. This allows the images to be enlarged without losing
                   quality.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
                 <AccordionTrigger>
-                  Does upscaleimage support API?
+                  Does bigjpg support API?
                 </AccordionTrigger>
                 <AccordionContent>
                   WIP! You will find it after logging in.
@@ -36,7 +36,7 @@ export default function FAQ() {
               </AccordionItem>
               <AccordionItem value="item-3">
                 <AccordionTrigger>
-                  How does upscaleimage compare to other tools?
+                  How does bigjpg compare to other tools?
                 </AccordionTrigger>
                 <AccordionContent>
                   With other software and tools, such as PS, an enlarged image
@@ -81,7 +81,7 @@ export default function FAQ() {
                 <AccordionTrigger>My enlarging failed! Why?</AccordionTrigger>
                 <AccordionContent>
                   Depending on your network environment and the current number
-                  of online users of upscaleimage.com, there is a small chance
+                  of online users of bigjpg.app, there is a small chance
                   that your enlarging will fail. If you encounter such a
                   problem, please simply try again.
                 </AccordionContent>
