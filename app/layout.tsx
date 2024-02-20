@@ -2,6 +2,8 @@ import SupabaseProvider from './supabase-provider';
 import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
 import { PropsWithChildren } from 'react';
+import { Analytics } from "@vercel/analytics/react";
+import GoogleAnalytics from "@/app/GoogleAnalytics";
 import 'styles/main.css';
 
 const meta = {
@@ -59,6 +61,14 @@ export default function RootLayout({
           </main>
           <Footer />
         </SupabaseProvider>
+        <Analytics />
+        {process.env.NODE_ENV === "development" ? (
+          <></>
+        ) : (
+          <>
+            <GoogleAnalytics />
+          </>
+        )}
       </body>
     </html>
   );
