@@ -19,8 +19,8 @@ export default async function HomePage() {
         user={session?.user}
         subscription={subscription}
       />
-      <FAQ />
       <AppDownload />
+      <FAQ />
     </>
   );
 }
