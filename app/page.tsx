@@ -4,6 +4,7 @@ import {
   getSession,
   getSubscription,
 } from '@/app/supabase-server';
+import AppDownload from '@/components/ui/AppDownload/AppDownload';
 
 export default async function HomePage() {
   const [session, subscription] = await Promise.all([
@@ -19,6 +20,7 @@ export default async function HomePage() {
         subscription={subscription}
       />
       <FAQ />
+      <AppDownload />
     </>
   );
 }
