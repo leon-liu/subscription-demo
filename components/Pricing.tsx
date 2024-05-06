@@ -8,6 +8,8 @@ import { Session, User } from '@supabase/supabase-js';
 import cn from 'classnames';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import Image from 'next/image';
+
 
 type Subscription = Database['public']['Tables']['subscriptions']['Row'];
 type Product = Database['public']['Tables']['products']['Row'];
@@ -90,7 +92,7 @@ export default function Pricing({
             .
           </p>
         </div>
-        <LogoCloud />
+        {/* <LogoCloud /> */}
       </section>
     );
 
@@ -157,7 +159,7 @@ export default function Pricing({
               })}
             </div>
           </div>
-          <LogoCloud />
+          {/* <LogoCloud /> */}
         </div>
       </section>
     );
@@ -173,7 +175,7 @@ export default function Pricing({
             Start building for free, then add a site plan to go live. Account
             plans unlock additional features.
           </p>
-          <div className="relative self-center mt-6 bg-zinc-900 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
+          {/* <div className="relative self-center mt-6 bg-zinc-900 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
             {intervals.includes('month') && (
               <button
                 onClick={() => setBillingInterval('month')}
@@ -200,9 +202,9 @@ export default function Pricing({
                 Yearly billing
               </button>
             )}
-          </div>
+          </div> */}
         </div>
-        <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
+        {/* <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
           {products.map((product) => {
             const price = product?.prices?.find(
               (price) => price.interval === billingInterval
@@ -252,8 +254,16 @@ export default function Pricing({
               </div>
             );
           })}
-        </div>
+        </div> */}
         {/* <LogoCloud /> */}
+        <div className="flex justify-center my-10">
+          <Image
+            src="/price.png"
+            width={600}
+            height={600}
+            alt="Picture of the price"
+          />
+        </div>
       </div>
     </section>
   );

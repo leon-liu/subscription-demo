@@ -27,9 +27,9 @@ export default async function Navbar() {
               <Link href="/" className={s.link}>
                 Bigjpg
               </Link>
-              {/* <Link href="/pricing" className={s.link}>
+              <Link href="/pricing" className={s.link}>
                 Pricing
-              </Link> */}
+              </Link>
               {user && (
                 <Link href="/account" className={s.link}>
                   Account
