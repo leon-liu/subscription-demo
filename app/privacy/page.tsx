@@ -1,12 +1,21 @@
 export default async function Privacy() {
   return (
     <section className=" mx-8 my-10 bg-black flex flex-col gap-4 sm:mx-40">
-      <h1 className="font-extrabold text-2xl text-center my-4">Privacy Policy of Quantum Bigjpg</h1>
+      <h1 className="font-extrabold text-2xl text-center my-4">
+        Privacy Policy of Quantum BigJPG and Bigjpg.app by Tactic
+      </h1>
+
+      <p>
+        This privacy policy governs the use of the Quantum BigJPG mobile
+        application ("App") and the Bigjpg.app website (https://www.bigjpg.app)
+        (collectively referred to as the "Services") provided by Tactic.
+      </p>
+
       <h2 className="font-bold text-xl">Policy summary</h2>
       <p>
         <span className="font-bold">
           Personal Data is processed for the following purposes and using the
-          following services:
+          following services by Tactic:
         </span>
       </p>
       <ul className="list-disc list-inside">
@@ -152,61 +161,29 @@ export default async function Privacy() {
       </ul>
       <p>
         <span>
-          AI&nbsp;Upscale may track Users by storing a
-          so-called&nbsp;universally unique identifier&nbsp;(or short&nbsp;UUID)
-          for analytics purposes or for storing Users' preferences. This
-          identifier is generated upon installation of this Application, it
-          persists between Application launches and updates, but it is lost when
-          the User deletes the Application. A reinstall generates a new UUID.
+          Tactic's Quantum BigJPG and Bigjpg.app may track Users by storing a
+          so-called universally unique identifier (or short UUID) for analytics
+          purposes or for storing Users' preferences. This identifier is
+          generated upon installation of the Application or first visit to the
+          website, it persists between Application launches/website visits and
+          updates, but it is lost when the User deletes the Application or
+          clears website data/cookies. A reinstall/revisit generates a new UUID.
         </span>
       </p>
-      <p>
-        <span className="font-bold">Contact information</span>
-      </p>
-
-      <ul className="list-disc list-inside">
-        <li>
-          <span>Owner and Data Controller</span>
-        </li>
-      </ul>
-      <p>
-        <span></span>
-      </p>
-      <p>
-        <span>Owner contact email:</span>
-        <span>&nbsp;AI superherocsteam@gmail.com&nbsp;</span>
-      </p>
-      <h2>Full policy</h2>
 
       <p>
-        <span className="font-bold">Owner and Data Controller</span>
-      </p>
-      <p>
-        <span>Zhenxiang Chen</span>
-      </p>
-      <p>
-        <span>Via Baldassarre Longhena 66</span>
-      </p>
-      <p>
-        <span>Unit #124</span>
-      </p>
-      <p>
-        <span>Marghera, VE 30175</span>
-      </p>
-      <p>
-        <span>Owner contact email:</span>
-        <span>&nbsp;AI superherocsteam@gmail.com&nbsp;</span>
+        <span>Owner contact email: superherocsteam@gmail.com</span>
       </p>
       <p>
         <span className="font-bold">Types of Data collected</span>
       </p>
       <p>
         <span>
-          Among the types of Personal Data that&nbsp;AI&nbsp;Upscale collects,
-          by itself or through third parties, there are: Trackers; Usage Data;
-          unique device identifiers for advertising (Google Advertiser ID
-          or&nbsp;IDFA, for example); device information;&nbsp;Universally
-          unique identifier&nbsp;(UUID); crash data.
+          Among the types of Personal Data that Tactic collects, by itself or
+          through third parties, there are: Trackers; Usage Data; unique device
+          identifiers for advertising (Google Advertiser ID or IDFA, for
+          example); device information; Universally unique identifier (UUID);
+          crash data.
         </span>
       </p>
       <p>
@@ -226,10 +203,10 @@ export default async function Privacy() {
         <span>
           Unless specified otherwise, all Data requested by Quantum Bigjpg is
           mandatory and failure to provide this Data may make it impossible for
-          Quantum Bigjpg to provide its services. In cases where AI Upscale
-          specifically states that some Data is not mandatory, Users are free
-          not to communicate this Data without consequences to the availability
-          or the functioning of the Service.
+          Quantum Bigjpg to provide its services. In cases where we specifically
+          states that some Data is not mandatory, Users are free not to
+          communicate this Data without consequences to the availability or the
+          functioning of the Service.
         </span>
       </p>
       <p>
@@ -249,7 +226,7 @@ export default async function Privacy() {
       <p>
         <span>
           Users are responsible for any third-party Personal Data obtained,
-          published or shared through&nbsp;AI&nbsp;Upscale.
+          published or shared through Tactic.
         </span>
       </p>
       <p>
@@ -645,12 +622,12 @@ export default async function Privacy() {
       </ul>
       <p>
         <span>
-          AI&nbsp;Upscale may track Users by storing a
-          so-called&nbsp;universally unique identifier&nbsp;(or short&nbsp;UUID)
-          for analytics purposes or for storing Users' preferences. This
-          identifier is generated upon installation of this Application, it
-          persists between Application launches and updates, but it is lost when
-          the User deletes the Application. A reinstall generates a new UUID.
+          We may track Users by storing a so-called universally unique
+          identifier (or short UUID) for analytics purposes or for storing
+          Users' preferences. This identifier is generated upon installation of
+          this Application, it persists between Application launches and
+          updates, but it is lost when the User deletes the Application. A
+          reinstall generates a new UUID.
         </span>
       </p>
       <p>
@@ -1344,7 +1321,7 @@ export default async function Privacy() {
       <p>
         <span>
           We may use your personal information to allow the operational
-          functioning of&nbsp;AI&nbsp;Upscale and features thereof (“business
+          functioning of Quantum Bigjpg and features thereof (“business
           purposes”). In such cases, your personal information will be processed
           in a fashion necessary and proportionate to the business purpose for
           which it was collected, and strictly within the limits of compatible
@@ -1390,17 +1367,16 @@ export default async function Privacy() {
       <p>
         <span>
           We collect the above-mentioned categories of personal information,
-          either directly or indirectly, from you when you
-          use&nbsp;AI&nbsp;Upscale.
+          either directly or indirectly, from you when you use Quantum Bigjpg.
         </span>
       </p>
       <p>
         <span>
           For example, you directly provide your personal information when you
-          submit requests via any forms on&nbsp;AI&nbsp;Upscale. You also
-          provide personal information indirectly when you navigate Quantum
-          Bigjpg, as personal information about you is automatically observed
-          and collected.
+          submit requests via any forms on our services. You also provide
+          personal information indirectly when you navigate Quantum Bigjpg, as
+          personal information about you is automatically observed and
+          collected.
         </span>
       </p>
       <p>
@@ -2401,7 +2377,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on&nbsp;AI&nbsp;Upscale.
+          link provided on Tactic.
         </span>
       </p>
       <p>
@@ -2471,7 +2447,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on&nbsp;AI&nbsp;Upscale.
+          link provided on Tactic.
         </span>
       </p>
       <p>
@@ -2812,7 +2788,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on&nbsp;AI&nbsp;Upscale.
+          link provided on Tactic.
         </span>
       </p>
       <p>
@@ -2881,7 +2857,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on&nbsp;AI&nbsp;Upscale.
+          link provided on Tactic.
         </span>
       </p>
       <p>
@@ -3211,7 +3187,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on&nbsp;AI&nbsp;Upscale.
+          link provided on Tactic.
         </span>
       </p>
       <p>
@@ -3281,7 +3257,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on&nbsp;AI&nbsp;Upscale.
+          link provided on Tactic.
         </span>
       </p>
       <p>
@@ -3442,10 +3418,10 @@ export default async function Privacy() {
       </p>
       <p>
         <span>
-          For operation and maintenance purposes,&nbsp;AI&nbsp;Upscale and any
-          third-party services may collect files that record interaction with
-          Quantum Bigjpg (System logs) or use other Personal Data (such as
-          the&nbsp;IP&nbsp;Address) for this purpose.
+          For operation and maintenance purposes, Tactic and any third-party
+          services may collect files that record interaction with Quantum Bigjpg
+          (System logs) or use other Personal Data (such as the IP Address) for
+          this purpose.
         </span>
       </p>
       <p>
@@ -3502,20 +3478,20 @@ export default async function Privacy() {
       </p>
       <p>
         <span>
-          Information collected automatically through&nbsp;AI&nbsp;Upscale (or
-          third-party services employed in Quantum Bigjpg), which can include:
-          the&nbsp;IP&nbsp;addresses or domain names of the computers utilized
-          by the Users who use Quantum Bigjpg, the&nbsp;URIaddresses (Uniform
-          Resource Identifier), the time of the request, the method utilized to
-          submit the request to the server, the size of the file received in
-          response, the numerical code indicating the status of the server's
-          answer (successful outcome, error, etc.), the country of origin, the
-          features of the browser and the&nbsp;operating system&nbsp;utilized by
-          the User, the various time details per visit (e.g., the time spent on
-          each page within the Application) and the details about the path
-          followed within the Application with special reference to the sequence
-          of pages visited, and other parameters about the device operating
-          system and/or the User's IT environment.
+          Information collected automatically through Tactic (or third-party
+          services employed in Quantum Bigjpg), which can include: the IP
+          addresses or domain names of the computers utilized by the Users who
+          use Quantum Bigjpg, the URIaddresses (Uniform Resource Identifier),
+          the time of the request, the method utilized to submit the request to
+          the server, the size of the file received in response, the numerical
+          code indicating the status of the server's answer (successful outcome,
+          error, etc.), the country of origin, the features of the browser and
+          the operating system utilized by the User, the various time details
+          per visit (e.g., the time spent on each page within the Application)
+          and the details about the path followed within the Application with
+          special reference to the sequence of pages visited, and other
+          parameters about the device operating system and/or the User's IT
+          environment.
         </span>
       </p>
       <p>
@@ -3523,8 +3499,8 @@ export default async function Privacy() {
       </p>
       <p>
         <span>
-          The individual using&nbsp;AI&nbsp;Upscale who, unless otherwise
-          specified, coincides with the Data Subject.
+          The individual using Tactic who, unless otherwise specified, coincides
+          with the Data Subject.
         </span>
       </p>
       <p>
@@ -3551,13 +3527,13 @@ export default async function Privacy() {
           The natural or legal person, public authority, agency or other body
           which, alone or jointly with others, determines the purposes and means
           of the processing of Personal Data, including the security measures
-          concerning the operation and use of&nbsp;AI&nbsp;Upscale. The Data
+          concerning the operation and use of Quantum Bigjpg. The Data
           Controller, unless otherwise specified, is the Owner of Quantum
           Bigjpg.
         </span>
       </p>
       <p>
-        <span className="font-bold">AI&nbsp;Upscale (or this Application)</span>
+        <span className="font-bold">Quantum Bigjpg (or this Application)</span>
       </p>
       <p>
         <span>
@@ -3619,8 +3595,8 @@ export default async function Privacy() {
       </p>
       <p>
         <span>
-          This privacy policy relates solely to&nbsp;AI&nbsp;Upscale, if not
-          stated otherwise within this document.
+          This privacy policy relates solely to Tactic, if not stated otherwise
+          within this document.
         </span>
       </p>
       <p>
