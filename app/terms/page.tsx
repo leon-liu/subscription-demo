@@ -3,7 +3,7 @@ export default async function Terms() {
     <section className=" mx-8 my-10 bg-black flex flex-col gap-4 sm:mx-40">
       <h1 className="font-extrabold text-2xl text-center my-4">Terms of Use</h1>
       <p>
-        Welcome to BigJPG.app, operated by Tactic. By using our website and
+        Welcome to BigJPG.app, operated by us. By using our website and
         services, you agree to be bound by these Terms of Use.
       </p>
       <h2 className="font-bold text-lg">Services</h2>
@@ -18,7 +18,7 @@ export default async function Terms() {
         To access certain features, you may be required to create an account or
         subscribe to a paid plan. Subscription plans and pricing are available
         on our website and may change from time to time. By subscribing, you
-        authorize Tactic to charge the applicable fees on a recurring basis
+        authorize us to charge the applicable fees on a recurring basis
         until you cancel your subscription.
       </p>
       <h2 className="font-bold text-lg">Refund Policy</h2>
@@ -31,7 +31,7 @@ export default async function Terms() {
       </p>
       <h2 className="font-bold text-lg">User Content</h2>
       <p>
-        By uploading images to our platform, you grant Tactic a non-exclusive,
+        By uploading images to our platform, you grant us a non-exclusive,
         worldwide, royalty-free license to use, reproduce, and display your
         content for the purpose of providing our services. You retain ownership
         of your content, and we will not use it for any other purposes without
@@ -40,19 +40,19 @@ export default async function Terms() {
       <h2 className="font-bold text-lg">Intellectual Property</h2>
       <p>
         BigJPG.app and its related trademarks, logos, and branding are the
-        exclusive property of Tactic. Our website and services are protected by
+        exclusive property of us. Our website and services are protected by
         copyright, trademark, and other intellectual property laws.
       </p>
       <h2 className="font-bold text-lg">Disclaimers and Limitations</h2>
       <p>
         Our services are provided "as is" without warranties of any kind,
-        express or implied. Tactic does not guarantee the accuracy,
+        express or implied. We does not guarantee the accuracy,
         completeness, or reliability of our services or the results obtained
         through their use.
       </p>
       <h2 className="font-bold text-lg">Termination</h2>
       <p>
-        Tactic reserves the right to terminate or suspend your access to our
+        We reserves the right to terminate or suspend your access to our
         services at any time, with or without cause. Upon termination, your
         subscription will be canceled, and you will not be entitled to any
         refunds for the remaining subscription period.

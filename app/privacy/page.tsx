@@ -2,20 +2,20 @@ export default async function Privacy() {
   return (
     <section className=" mx-8 my-10 bg-black flex flex-col gap-4 sm:mx-40">
       <h1 className="font-extrabold text-2xl text-center my-4">
-        Privacy Policy of Quantum BigJPG and Bigjpg.app by Tactic
+        Privacy Policy of Quantum BigJPG and Bigjpg.app by us
       </h1>
 
       <p>
         This privacy policy governs the use of the Quantum BigJPG mobile
         application ("App") and the Bigjpg.app website (https://www.bigjpg.app)
-        (collectively referred to as the "Services") provided by Tactic.
+        (collectively referred to as the "Services") provided by us.
       </p>
 
       <h2 className="font-bold text-xl">Policy summary</h2>
       <p>
         <span className="font-bold">
           Personal Data is processed for the following purposes and using the
-          following services by Tactic:
+          following services by us:
         </span>
       </p>
       <ul className="list-disc list-inside">
@@ -161,7 +161,7 @@ export default async function Privacy() {
       </ul>
       <p>
         <span>
-          Tactic's Quantum BigJPG and Bigjpg.app may track Users by storing a
+          We're Quantum BigJPG and Bigjpg.app may track Users by storing a
           so-called universally unique identifier (or short UUID) for analytics
           purposes or for storing Users' preferences. This identifier is
           generated upon installation of the Application or first visit to the
@@ -179,7 +179,7 @@ export default async function Privacy() {
       </p>
       <p>
         <span>
-          Among the types of Personal Data that Tactic collects, by itself or
+          Among the types of Personal Data that we collects, by itself or
           through third parties, there are: Trackers; Usage Data; unique device
           identifiers for advertising (Google Advertiser ID or IDFA, for
           example); device information; Universally unique identifier (UUID);
@@ -226,7 +226,7 @@ export default async function Privacy() {
       <p>
         <span>
           Users are responsible for any third-party Personal Data obtained,
-          published or shared through Tactic.
+          published or shared through us.
         </span>
       </p>
       <p>
@@ -2377,7 +2377,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on Tactic.
+          link provided on us.
         </span>
       </p>
       <p>
@@ -2447,7 +2447,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on Tactic.
+          link provided on we.
         </span>
       </p>
       <p>
@@ -2788,7 +2788,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on Tactic.
+          link provided on we.
         </span>
       </p>
       <p>
@@ -2857,7 +2857,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on Tactic.
+          link provided on we.
         </span>
       </p>
       <p>
@@ -3187,7 +3187,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on Tactic.
+          link provided on we.
         </span>
       </p>
       <p>
@@ -3257,7 +3257,7 @@ export default async function Privacy() {
       <p>
         <span>
           For a simplified opt-out method, you can also use the privacy choices
-          link provided on Tactic.
+          link provided on we.
         </span>
       </p>
       <p>
@@ -3418,7 +3418,7 @@ export default async function Privacy() {
       </p>
       <p>
         <span>
-          For operation and maintenance purposes, Tactic and any third-party
+          For operation and maintenance purposes, we and any third-party
           services may collect files that record interaction with Quantum Bigjpg
           (System logs) or use other Personal Data (such as the IP Address) for
           this purpose.
@@ -3478,7 +3478,7 @@ export default async function Privacy() {
       </p>
       <p>
         <span>
-          Information collected automatically through Tactic (or third-party
+          Information collected automatically through us (or third-party
           services employed in Quantum Bigjpg), which can include: the IP
           addresses or domain names of the computers utilized by the Users who
           use Quantum Bigjpg, the URIaddresses (Uniform Resource Identifier),
@@ -3499,7 +3499,7 @@ export default async function Privacy() {
       </p>
       <p>
         <span>
-          The individual using Tactic who, unless otherwise specified, coincides
+          The individual using our name who, unless otherwise specified, coincides
           with the Data Subject.
         </span>
       </p>
@@ -3595,7 +3595,7 @@ export default async function Privacy() {
       </p>
       <p>
         <span>
-          This privacy policy relates solely to Tactic, if not stated otherwise
+          This privacy policy relates solely to us, if not stated otherwise
           within this document.
         </span>
       </p>
