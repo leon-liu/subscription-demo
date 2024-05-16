@@ -50,6 +50,18 @@ const getFileSizeWithUnit = (size: number): string => {
 const sizeLimit = 1024 * 1024;
 const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
 
+function getRequestsSent(): number {
+  // Get the number of requests sent by the user from the client-side cache
+  const requestsSent = localStorage.getItem('requestsSent');
+  return requestsSent ? parseInt(requestsSent, 10) : 0;
+}
+
+function incrementRequestsSent(): void {
+  // Increment the number of requests sent by the user in the client-side cache
+  const requestsSent = getRequestsSent();
+  localStorage.setItem('requestsSent', (requestsSent + 1).toString());
+}
+
 export default function UploadImage({
   file,
   onDelete,
@@ -97,12 +109,21 @@ export default function UploadImage({
   }, []);
 
   const handleGenerate = useCallback(async () => {
+    // Check if the user has already sent the request twice
+    if (getRequestsSent() >= 2) {
+      setMessage('Download App to proceed');
+      return;
+    }
+
     try {
       setProcessing(true);
       const generatedImageUrl = await postImageData({
         url: '/api/generate-upscale-image',
         data: { img: imageObj, scale }
       });
+      // Increment the number of requests sent by the user
+      incrementRequestsSent();
+
       if (isValid && loggedIn) {
         const { path } = await postImageFile({
           url: '/api/image-storage',
@@ -146,7 +167,7 @@ export default function UploadImage({
           <div className="grid grid-rows-3 grid-cols-3 grid-flow-col gap-4 w-full py-3">
             <div className="row-span-3 grid justify-center items-center">
               {!hasSubscription && (
-                <p className=" text-red-500 col-start-1 row-start-1 z-10 text-center">
+                <p className=" text-red-500 col-start-1 row-start-1 z-10 text-center bg-stone-600">
                   {message}
                 </p>
               )}
