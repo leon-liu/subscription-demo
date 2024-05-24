@@ -9,7 +9,7 @@ export default function CheckoutButton() {
     paddle?.Checkout.open({
       items: [
         {
-          priceId: 'pro_01hympj4z3pbwzqwhncg6jj6g1', // you can find it in the product catalog
+          priceId: 'pri_01hympnpb0vff47wcvpcz5pddy', // you can find it in the product catalog
           quantity: 1
         }
       ],
