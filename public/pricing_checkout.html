@@ -35,12 +35,23 @@
         {
             quantity: 1,
             priceId: 'pri_01hympmpbg65ja2tt07scf0awn', // basic
-        },{
+        }, {
             quantity: 1,
             priceId: 'pri_01hymppcb26cmepzpq8e7bnmjx', // premium
         }]
 
-        var basicItems = [], standardItems = [], premiumItems = [];
+        var basicItems = [{
+            quantity: 1,
+            priceId: 'pri_01hympmpbg65ja2tt07scf0awn', // basic
+        }];
+        var standardItems = [{
+            quantity: 1,
+            priceId: 'pri_01hympnpb0vff47wcvpcz5pddy', // standard
+        }];
+        var premiumItems = [{
+            quantity: 1,
+            priceId: 'pri_01hymppcb26cmepzpq8e7bnmjx', // premium
+        }];
 
         // get prices
         function getPrices() {
@@ -56,16 +67,16 @@
                     for (item of items) {
                         if (item.product.id === basicProduct) {
                             document.getElementById("basic-price").innerHTML = item.formattedTotals.subtotal
-                            basicItems.push(item);
+
                             console.log('basic ' + item.formattedTotals.subtotal)
                         } else if (item.product.id === standardProduct) {
                             document.getElementById("standard-price").innerHTML = item.formattedTotals.subtotal
                             console.log('standard ' + item.formattedTotals.subtotal)
-                            standardItems.push(item);
+
                         } else if (item.product.id === premiumProduct) {
                             document.getElementById("premium-price").innerHTML = item.formattedTotals.subtotal
                             console.log('premium ' + item.formattedTotals.subtotal)
-                            premiumItems.push(item);
+
                         }
                     }
                 })
