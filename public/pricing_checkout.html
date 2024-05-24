@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paddle Test</title>
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <script type="text/javascript">
+        Paddle.Environment.set("sandbox");
+        Paddle.Initialize({
+            token: "test_61c66329b85f963cc0d724de58e", // replace with a client-side token
+            // prints events to console for debugging
+            eventCallback: function (data) {
+                console.log(data);
+            }
+        });
+
+
+        // define products and prices
+        var premiumProduct = 'pro_01hympj4z3pbwzqwhncg6jj6g1';
+        var standardProduct = 'pro_01hympjmt95jsmbp4r1mvy441d';
+        var basicProduct = 'pro_01hympk3acaaspps624egwdj02';
+
+        // // DOM queries
+        // var basicPriceLabel = document.getElementById("basic-price");
+        // var standardPriceLabel = document.getElementById("standard-price");
+        // var premiumPriceLabel = document.getElementById("premium-price");
+
+
+        var itemsList = [{
+            quantity: 1,
+            priceId: 'pri_01hympnpb0vff47wcvpcz5pddy', // standard
+        },
+        {
+            quantity: 1,
+            priceId: 'pri_01hympmpbg65ja2tt07scf0awn', // basic
+        },{
+            quantity: 1,
+            priceId: 'pri_01hymppcb26cmepzpq8e7bnmjx', // premium
+        }]
+
+        // get prices
+        function getPrices() {
+
+            var request = {
+                items: itemsList
+            }
+            Paddle.PricePreview(request)
+                .then((result) => {
+                    console.log(result);
+
+                    var items = result.data.details.lineItems;
+                    for (item of items) {
+                        if (item.product.id === basicProduct) {
+                            document.getElementById("basic-price").innerHTML = item.formattedTotals.subtotal
+                            console.log('basic ' + item.formattedTotals.subtotal)
+                        } else if (item.product.id === standardProduct) {
+                            document.getElementById("standard-price").innerHTML = item.formattedTotals.subtotal
+                            console.log('standard ' + item.formattedTotals.subtotal)
+                        } else if (item.product.id === premiumProduct) {
+                            document.getElementById("premium-price").innerHTML = item.formattedTotals.subtotal
+                            console.log('premium ' + item.formattedTotals.subtotal)
+                        }
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+
+
+        // define customer details
+        let customerInfo = {
+            email: "tacticcsteam@gmail.com",
+            address: {
+                countryCode: "US",
+                postalCode: "10021"
+            }
+        }
+
+        // open checkout
+        function openCheckout(items, customer) {
+            Paddle.Checkout.open({
+                items: items,
+                customer: customer
+            });
+        }
+    </script>
+    <style>
+        .pricing-page-container {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            margin-top: 2em;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+
+        .pricing-grid {
+            display: block;
+            margin-bottom: 1em;
+        }
+
+        .pricing-grid .free-plan {
+            background-color: LavenderBlush
+        }
+
+        .pricing-grid .basic-plan {
+            background-color: AliceBlue
+        }
+
+        .pricing-grid .standard-plan {
+            background-color: HoneyDew
+        }
+
+        .pricing-grid .premium-plan {
+            background-color: yellowgreen
+        }
+
+        .pricing-grid>* {
+            padding: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-grid {
+                display: grid;
+                grid-auto-rows: 1fr;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+    </style>
+    <!-- MVP.css: https://andybrewer.github.io/mvp/ -->
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12.0/mvp.css" media="print" onload="this.media='all'">
+</head>
+
+<body onLoad="getPrices()">
+    <div class="pricing-page-container">
+        <h1>Choose your plan</h1>
+        <div class="pricing-grid">
+            <div class="free-plan">
+                <h3>Free</h3>
+                <p>Contact us</p>
+                <p><small>bespoke pricing</small></p>
+                <button>Inquire now</button>
+            </div>
+            <div class="basic-plan">
+                <h3>basic</h3>
+                <p id="basic-price"></p>
+                <p><small>per user</small></p>
+                <button onclick="openCheckout(itemsList, customerInfo)">Sign up now</button>
+            </div>
+            <div class="standard-plan">
+                <h3>standard</h3>
+                <p id="standard-price"></p>
+                <p><small>per user</small></p>
+                <button onclick="openCheckout(itemsList)">Sign up now</button>
+            </div>
+            <div class="premium-plan">
+                <h3>premium</h3>
+                <p id="premium-price"></p>
+                <p><small>per user</small></p>
+                <button onclick="openCheckout(itemsList)">Sign up now</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
