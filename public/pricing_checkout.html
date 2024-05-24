@@ -40,6 +40,8 @@
             priceId: 'pri_01hymppcb26cmepzpq8e7bnmjx', // premium
         }]
 
+        var basicItems = [], standardItems = [], premiumItems = [];
+
         // get prices
         function getPrices() {
 
@@ -54,13 +56,16 @@
                     for (item of items) {
                         if (item.product.id === basicProduct) {
                             document.getElementById("basic-price").innerHTML = item.formattedTotals.subtotal
+                            basicItems.push(item);
                             console.log('basic ' + item.formattedTotals.subtotal)
                         } else if (item.product.id === standardProduct) {
                             document.getElementById("standard-price").innerHTML = item.formattedTotals.subtotal
                             console.log('standard ' + item.formattedTotals.subtotal)
+                            standardItems.push(item);
                         } else if (item.product.id === premiumProduct) {
                             document.getElementById("premium-price").innerHTML = item.formattedTotals.subtotal
                             console.log('premium ' + item.formattedTotals.subtotal)
+                            premiumItems.push(item);
                         }
                     }
                 })
@@ -148,19 +153,19 @@
                 <h3>basic</h3>
                 <p id="basic-price"></p>
                 <p><small>per user</small></p>
-                <button onclick="openCheckout(itemsList, customerInfo)">Sign up now</button>
+                <button onclick="openCheckout(basicItems, customerInfo)">Sign up now</button>
             </div>
             <div class="standard-plan">
                 <h3>standard</h3>
                 <p id="standard-price"></p>
                 <p><small>per user</small></p>
-                <button onclick="openCheckout(itemsList)">Sign up now</button>
+                <button onclick="openCheckout(standardItems)">Sign up now</button>
             </div>
             <div class="premium-plan">
                 <h3>premium</h3>
                 <p id="premium-price"></p>
                 <p><small>per user</small></p>
-                <button onclick="openCheckout(itemsList)">Sign up now</button>
+                <button onclick="openCheckout(premiumItems)">Sign up now</button>
             </div>
         </div>
     </div>
