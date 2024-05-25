@@ -12,6 +12,9 @@
             token: "test_61c66329b85f963cc0d724de58e", // replace with a client-side token
             // prints events to console for debugging
             eventCallback: function (data) {
+                if (data.name == "checkout.completed") {
+                    console.log("checkout.completed", data); // todo: save to user throttle usage
+                }
                 console.log(data);
             }
         });
@@ -98,6 +101,12 @@
         // open checkout
         function openCheckout(items, customer) {
             Paddle.Checkout.open({
+                settings: {
+                    displayMode: "overlay",
+                    theme: "light",
+                    locale: "en",
+                    successUrl: "https://paddle.com/thankyou" // todo add page to navigate to upscale page
+                },
                 items: items,
                 customer: customer
             });
@@ -156,27 +165,58 @@
         <div class="pricing-grid">
             <div class="free-plan">
                 <h3>Free</h3>
-                <p>Contact us</p>
-                <p><small>bespoke pricing</small></p>
-                <button>Inquire now</button>
+                <p>$0.00</p>
+                <p><small><b>Pictures / Month: 20</b></small></p>
+                <p><small>Speed: Slow</small></p>
+                <p><small>Server: Shared</small></p>
+                <p><small>Max Upload Size: 5MB</small></p>
+                <p><small>Max Enlarging Ratio: 4x</small></p>
+                <p><small>Offline Enlarging: Yes</small></p>
             </div>
             <div class="basic-plan">
-                <h3>basic</h3>
+                <h3>Basic</h3>
                 <p id="basic-price"></p>
-                <p><small>per user</small></p>
-                <button onclick="openCheckout(basicItems, customerInfo)">Sign up now</button>
+                <p><small><b>Duration: 2 Months</b></small></p>
+                <p><small><b>Pictures / Month: 500</b></small></p>
+                <p><small>One time payment</small></p>
+                <p><small>Speed: Top priority</small></p>
+                <p><small>Server: HighPerformance</small></p>
+                <p><small>Max Upload Size: 50MB</small></p>
+                <p><small>Max Enlarging Ratio: 16x</small></p>
+                <p><small>Offline Enlarging: Yes</small></p>
+                <p><small>Parallel Enlarging: Yes</small></p>
+                <p><small>Batch mode: Yes</small></p>
+                <button onclick="openCheckout(basicItems, customerInfo)">Subscribe</button>
             </div>
             <div class="standard-plan">
-                <h3>standard</h3>
+                <h3>Standard</h3>
                 <p id="standard-price"></p>
-                <p><small>per user</small></p>
-                <button onclick="openCheckout(standardItems)">Sign up now</button>
+                <p><small><b>Duration: 6 Months</b></small></p>
+                <p><small><b>Pictures / Month: 1000</b></small></p>
+                <p><small>One time payment</small></p>
+                <p><small>Speed: Top priority</small></p>
+                <p><small>Server: HighPerformance</small></p>
+                <p><small>Max Upload Size: 50MB</small></p>
+                <p><small>Max Enlarging Ratio: 16x</small></p>
+                <p><small>Offline Enlarging: Yes</small></p>
+                <p><small>Parallel Enlarging: Yes</small></p>
+                <p><small>Batch mode: Yes</small></p>
+                <button onclick="openCheckout(standardItems)">Subscribe</button>
             </div>
             <div class="premium-plan">
-                <h3>premium</h3>
+                <h3>Premium</h3>
                 <p id="premium-price"></p>
-                <p><small>per user</small></p>
-                <button onclick="openCheckout(premiumItems)">Sign up now</button>
+                <p><small><b>Duration: 12 Months</b></small></p>
+                <p><small><b>Pictures / Month: 2000</b></small></p>
+                <p><small>One time payment</small></p>
+                <p><small>Speed: Top priority</small></p>
+                <p><small>Server: HighPerformance</small></p>
+                <p><small>Max Upload Size: 50MB</small></p>
+                <p><small>Max Enlarging Ratio: 16x</small></p>
+                <p><small>Offline Enlarging: Yes</small></p>
+                <p><small>Parallel Enlarging: Yes</small></p>
+                <p><small>Batch mode: Yes</small></p>
+                <button onclick="openCheckout(premiumItems)">Subscribe</button>
             </div>
         </div>
     </div>

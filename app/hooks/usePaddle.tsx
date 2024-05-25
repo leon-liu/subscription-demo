@@ -18,5 +18,6 @@ export default function usePaddle() {
     });
   }, []);
 
+  console.log('==============', paddle)
   return paddle;
 }

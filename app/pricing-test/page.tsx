@@ -3,7 +3,7 @@ import {
   getSubscription,
   getActiveProductsWithPrices
 } from '@/app/supabase-server';
-import Pricing from '@/components/Pricing';
+import PaddlePricing from '@/components/ui/PaddlePricing/PaddlePricing';
 
 export default async function PricingPage() {
   const [session, products, subscription] = await Promise.all([
@@ -13,11 +13,10 @@ export default async function PricingPage() {
   ]);
 
   return (
-      <Pricing
+      <PaddlePricing
         session={session}
         user={session?.user}
         products={products}
-        subscription={subscription}
-      />
+        subscription={subscription}/>
   );
 }
